@@ -3,14 +3,14 @@
 JWT or JSON WEB Token is a way to secure your data, so 
 that no one get it without a proper authorization. 
 
-### step 1 ClientSide(create and store the idToken)
+### step 1: ClientSide(create and store the idToken)
 get the id token on AuthStateChange and store it in localStorage  
 ``` js
 getIdToken(user)
     .then(idToken => localStorage.setItem('idToken', idToken));
 ```
 
-### step 2 ClientSide(pass the idToken to database)
+### step 2: ClientSide(pass the idToken to database)
 send the id Token from localStorage, on fetch header so that you can 
 make the data accessible only when it comes with it's unique idToken.
 - on headers, give it a name authorization and on property add Bearer before the idToken
@@ -21,13 +21,13 @@ make the data accessible only when it comes with it's unique idToken.
 }
 ```
 
-### step 3 ServerSide(Add the Firebase Admin SDK to your server AKA firebase server environment)
+### step 3: ServerSide(Add the Firebase Admin SDK to your server AKA firebase server environment)
 
 install firebase admin
 ``` cmd
 $ npm install firebase-admin --save
 ```
-### step 4 ServerSide(Initialize the SDK )
+### step 4: ServerSide(Initialize the SDK )
 
 To generate a private key file for your service account:
 
@@ -49,7 +49,7 @@ admin.initializeApp({
 ```
 
 
-### step 5 ServerSide(get the idToken and decode the user information)
+### step 5: ServerSide(get the idToken and decode the user information)
 on server side catch the id token from req.headers, 
 
 decode it and pass it using next() method
@@ -69,7 +69,7 @@ async function verifyToken(req, res, next) {
 }
 ```
 
-### Finally (match the idToken info with the params/query info)
+### Finally: (match the idToken info with the params/query info)
 here is an example
 
 ```js
@@ -87,3 +87,5 @@ here is an example
 
 });
 ```
+
+#### I tried my best to explain it in a minimal way, may be it's not a perfect example but i tried anyway.
