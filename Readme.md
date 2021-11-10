@@ -4,14 +4,14 @@ JWT or JSON WEB Token is a way to secure your data, so
 that no one get it without a proper authorization. 
 
 ### step 1 ClientSide(create and store the idToken)
-get the id token on AuthStateChange 
+get the id token on AuthStateChange and store it in localStorage  
 ``` js
 getIdToken(user)
     .then(idToken => localStorage.setItem('idToken', idToken));
 ```
 
 ### step 2 ClientSide(pass the idToken to database)
-send the id Token on server header so that you can 
+send the id Token from localStorage, on fetch header so that you can 
 make the data accessible only when it comes with it's unique idToken.
 - on headers, give it a name authorization and on property add Bearer before the idToken
 ``` js
