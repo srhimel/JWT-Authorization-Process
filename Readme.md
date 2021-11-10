@@ -40,6 +40,8 @@ initialize it
 ```js
 const admin = require("firebase-admin");
 const serviceAccount = require("./user-login----.json.json");
+// --== or you can put your credential on .env.local like Jhankar vai did ==-- \\
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
