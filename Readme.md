@@ -67,7 +67,7 @@ async function verifyToken(req, res, next) {
 }
 ```
 
-### Finally (match the idToken info with the params info)
+### Finally (match the idToken info with the params/query info)
 here is an example
 
 ```js
