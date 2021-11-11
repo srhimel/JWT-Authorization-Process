@@ -25,7 +25,7 @@ make the data accessible only when it comes with it's unique idToken.
 
 install firebase admin
 ``` cmd
-$ npm install firebase-admin --save
+npm install firebase-admin --save
 ```
 ### step 4: ServerSide(Initialize the SDK )
 
