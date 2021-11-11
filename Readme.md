@@ -86,6 +86,22 @@ here is an example
     }
 
 });
+
+// another
+
+app.put('/users/admin', verifyToken, async (req, res) => {
+    const user = req.body;
+    const requester = req.decodeEmail;
+    if (requester) {
+        const requesterAccount = await userCollection.findOne({ email: requester });
+        if (requesterAccount.role === 'admin') {
+            const query = { email: user.email }
+            const update = { $set: { role: 'admin' } }
+            const result = await userCollection.updateOne(query, update)
+            res.json(result);
+        }
+    }
+});
 ```
 
 #### I tried my best to explain it in a minimal way, may be it's not a perfect example but i tried anyway.
